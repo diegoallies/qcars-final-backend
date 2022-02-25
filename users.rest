@@ -1,11 +1,11 @@
-GET http://localhost:3000/users 
+GET http://localhost:9000/users 
 
 ###
-GET http://localhost:3000/users
+GET http://localhost:9000/users
 
 
 ###
-POST http://localhost:3000/users/signup
+POST http://localhost:9000/users/signup
 Content-Type: application/json
 
 {
@@ -17,10 +17,10 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:3000/users/62161dc06dcd92ecd4d2bfea
+DELETE http://localhost:9000/users/62161dc06dcd92ecd4d2bfea
 
 ###
-PATCH http://localhost:3000/users/6216158b05dbf743a55f8355
+PATCH http://localhost:9000/users/6216158b05dbf743a55f8355
 Content-Type: application/json
 
 {

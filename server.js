@@ -17,4 +17,4 @@ const productsRouter = require('./app/routes/products.routes.js')
 app.use('/products', productsRouter)
 
 
-app.listen(process.env.PORT || 3000, () => console.log('Server Started'))
+app.listen(process.env.PORT || 9000, () => console.log('Server Started'))
