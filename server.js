@@ -11,7 +11,7 @@ db.once('open', () => console.log('Connected to Database Successfully'))
 
 app.use(express.json())
 
-const usersRouter = require('./app/routes/users.routes.js')
+const usersRouter = require('./app/routes/user.routes.js')
 app.use('/users', usersRouter)
 const productsRouter = require('./app/routes/products.routes.js')
 app.use('/products', productsRouter)
