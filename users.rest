@@ -5,12 +5,14 @@ GET http://localhost:3000/users
 
 
 ###
-POST http://localhost:3000/users/signin
+POST http://localhost:3000/users/signup
 Content-Type: application/json
 
 {
         "fullname":"Diego",
-        "password":"Allies"  
+        "password":"Allies",
+        "email": "diegoallies27@gmail.com",
+        "phone_number": "0684005634"
 }
 
 
