@@ -55,5 +55,5 @@ PATCH http://localhost:3000/users/6216158b05dbf743a55f8355
 Content-Type: application/json
 
 {
-    "name":"hacker"
+    "name":"hacker" 
 }
