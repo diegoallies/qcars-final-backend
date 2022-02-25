@@ -1,0 +1,59 @@
+get http://localhost:3000/subscribers
+
+###
+
+GET http://localhost:3000/subscribers/62161d9b43461014b2f7de70
+
+
+###
+
+
+post http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+    "name": "master encrypto",
+    "subscribedToChannel": "web developer"
+}
+
+###
+
+delete http://localhost:3000/subscribers/621622e99b01b917f49c7cb8
+
+###
+
+patch http://localhost:3000/subscribers/621622e99b01b917f49c7cba
+Content-Type: application/json
+
+{
+    "name": "poes kop"
+}
+
+###
+
+GET http://localhost:3000/users 
+
+###
+GET http://localhost:3000/users
+
+
+###
+POST http://localhost:3000/users/signin
+Content-Type: application/json
+
+{
+                "fullname":"diego",
+                "password":"baas"  
+}
+
+
+###
+DELETE http://localhost:3000/users/62161dc06dcd92ecd4d2bfea
+
+###
+PATCH http://localhost:3000/users/6216158b05dbf743a55f8355
+Content-Type: application/json
+
+{
+    "name":"hacker"
+}
