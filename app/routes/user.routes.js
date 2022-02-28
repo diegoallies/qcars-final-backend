@@ -122,7 +122,7 @@ async function Duplicates(req, res, next){
 let user 
 
 try{
-    user = await User.findOne({fullName: req.body.fullName})
+    user = await User.findOne({fullname: req.body.fullname})
     email = await User.findOne({email: req.body.email})
     if(user || email){
         return res.status(404).send({ message:"username or email already in exits"});
