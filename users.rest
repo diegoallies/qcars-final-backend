@@ -21,9 +21,9 @@ Content-Type: application/json
 DELETE http://localhost:9000/users/6218bc42f12ac86552779f89
 
 ###
-PATCH http://localhost:9000/users/6216158b05dbf743a55f8355
+PATCH http://localhost:9000/users/6218be31b86000072206ea8b
 Content-Type: application/json
 
 {
-    "name":"master encrypto"
+    "fullname":"master encrypto"
 }
