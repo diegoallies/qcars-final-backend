@@ -43,7 +43,7 @@ router.delete("/", [verifyToken, getUser], async (req, res) => {
         res.user.cart = []
 
         await res.user.save()
-        res.json({ message:'Cleared Item'})
+        res.json({ message:'Item Cleared'})
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
@@ -63,7 +63,7 @@ router.delete("/:id", [verifyToken, getUser], async (req, res) => {
     let token = jwt.sign({ _id: req.userId, cart }, process.env.ACCESSTOKEN, {
       expiresIn: 86400, // 24 hours
     });
-    res.json({ message: "Deleted product", updated, token });
+    res.json({ message: "Product Deleted ", updated, token });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -101,7 +101,7 @@ async function getUser(req, res, next) {
    try{
        user = await User.findById(req.userId)
       if(user == null){
-          return res.status(404).json({ message:'Cannot find User' })
+          return res.status(404).json({ message:'User Not Found' })
       } 
    } catch (err) {
        return res.status(500).json({ message: err.message })

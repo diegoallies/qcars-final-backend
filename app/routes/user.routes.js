@@ -130,7 +130,7 @@ try{
     user = await User.findOne({fullname: req.body.fullname})
     email = await User.findOne({email: req.body.email})
     if(user || email){
-        return res.status(404).send({ message:"username or email already in exits"});
+        return res.status(404).send({ message:"Username or Email already in exits"});
     }
   } catch(err){
     return res.status(500).send({ message:err.message})
