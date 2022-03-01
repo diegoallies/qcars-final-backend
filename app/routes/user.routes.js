@@ -5,7 +5,6 @@ const  bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const verifyToken = require('../middleware/auth.jwt')
 
-
 router.get('/', async (req, res) => {
    try {
     const users = await User.find()
@@ -138,8 +137,5 @@ try{
 }
 next()
 }
-
-
-
 
 module.exports = router

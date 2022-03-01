@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const Product = require('../models/product')
 const verifyToken = require('../middleware/auth.jwt')
-// const getProduct = require('../middleware/getProduct')s
 
 router.get('/', async (req, res) => {
    try {
@@ -88,8 +87,5 @@ async function getProduct  (req, res, next){
    res.product = product
    next()
 }
-
-
-
 
 module.exports = router

@@ -94,9 +94,7 @@ router.put("/:id", [verifyToken, getProduct], async (req, res) => {
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
-  });
-
-   
+  }); 
 
 async function getUser(req, res, next) {
     let user

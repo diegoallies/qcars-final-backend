@@ -9,9 +9,9 @@ POST http://localhost:8383/users/signup
 Content-Type: application/json
 
 {
-        "fullname":"aashcxsdsad",
-        "password":"Allisjhcg7es",
-        "email": "asdajashxgsd@gmail.com",
+        "fullname":"aashcxrsdsad",
+        "password":"Allisjhfcg7es",
+        "email": "asdajasfhxgsd@gmail.com",
         "phone_number": "0684305634"
 
 }
