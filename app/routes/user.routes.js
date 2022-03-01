@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/user')
 const  bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const verifyToken = require('../middleware/auth.jwt')
 
 
 router.get('/', async (req, res) => {
@@ -22,15 +23,15 @@ router.post('/signup',Duplicates, async (req, res) => {
     try{ 
         const salt = await bcrypt.genSalt()
         const hashedPassword = await bcrypt.hash(req.body.password, salt)
-        const user = new User ({  fullname: req.body.fullname,
+        const user = new User({  fullname: req.body.fullname,
                         email: req.body.email,
                         password: hashedPassword,
                         phone_number: req.body.phone_number,
                         })
             const newUser = await user.save()
             res.status(201).json(newUser)
-            // console.log(salt)
-            // console.log(hashedPassword)
+            console.log(salt)
+            console.log(hashedPassword)
     } catch(err){
         res.status(400).json({ message: err.message })
     }
@@ -53,11 +54,12 @@ router.post('/signin', async (req, res) => {
           message: "Invalid Password!"
         });
       }
-      let token = jwt.sign({ id:  customer.id }, process.env.ACCESS_TOKEN_SECRET, {
+      
+      let token = jwt.sign({ _id:  customer._id, cart: customer.cart }, process.env.ACCESS_TOKEN_SECRET, {
         expiresIn: 86400 // 24 hours
       });
       res.status(200).send({
-        id:  customer.id,
+        _id:  customer._id,
         username:  customer.username,
         email:  customer.email,
         accessToken: token
@@ -68,7 +70,10 @@ router.post('/signin', async (req, res) => {
     }
 })
 
-router.patch('/:id',getUser, async (req, res) => {
+router.patch('/:id',[getUser,verifyToken], async (req, res) => {
+    if(req.params.id != req.userId){
+        return res.status(401).send({ message: "Unauthorized!" });
+    }
     if(req.body.fullname !=null){
         res.user.fullname =  req.body.fullname
     }
@@ -81,9 +86,7 @@ router.patch('/:id',getUser, async (req, res) => {
     if(req.body.phone_number !=null){
         res.user.phone_number =  req.body.phone_number
     }
-    if(req.body.cart !=null){
-        res.user.cart =  req.body.cart
-    }
+    
     try{
         const updatedUser = await res.user.save()
         res.json(updatedUser)
@@ -92,8 +95,11 @@ router.patch('/:id',getUser, async (req, res) => {
     }
 })
 
-router.delete('/:id',getUser, async (req, res) => {
+router.delete('/:id',[getUser,verifyToken], async (req, res) => {
     try{
+        if(req.params.id != req.userId){
+            return res.status(401).send({ message: "Unauthorized!" });
+        }
         await res.user.remove()
         res.json({ message:'Deleted User'})
     } catch (err) {
@@ -132,5 +138,8 @@ try{
 }
 next()
 }
+
+
+
 
 module.exports = router
