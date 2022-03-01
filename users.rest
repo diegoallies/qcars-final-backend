@@ -1,11 +1,11 @@
-GET http://localhost:8383/users 
+GET http://localhost:8999/users 
 
 ###
-GET http://localhost:8383/users
+GET http://localhost:8999/users
 
 
 ###
-POST http://localhost:8383/users/signup
+POST http://localhost:8999/users/signup
 Content-Type: application/json
 
 {
@@ -18,10 +18,10 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:8383/users/6218bc42f12ac86552779f89
+DELETE http://localhost:8999/users/6218bc42f12ac86552779f89
 
 ###
-PATCH http://localhost:8383/users/6218be31b86000072206ea8b
+PATCH http://localhost:8999/users/6218be31b86000072206ea8b
 Content-Type: application/json
 
 {
