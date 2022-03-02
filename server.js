@@ -1,6 +1,7 @@
 // require('dotenv').config()
 
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const mongoose = require('mongoose')
 
@@ -13,6 +14,7 @@ app.get('/',(req,res)=>{
      res.send({message:"Welcome to Diego and Sive application"})
  })
 app.use(express.json())
+app.use(cors())
 
 const usersRouter = require('./app/routes/user.routes.js')
 app.use('/users', usersRouter)
