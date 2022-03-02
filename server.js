@@ -18,5 +18,9 @@ app.use('/users', usersRouter)
 const productsRouter = require('./app/routes/products.routes.js')
 app.use('/products', productsRouter)
 
+var serverPort = 8080;
 
-app.listen(process.env.PORT || 8999, () => console.log('Server Started'))
+var port = process.env.PORT || serverPort;
+
+app.listen(serverPort || 8999, () => console.log('Server Started'))
+
