@@ -1,4 +1,4 @@
-require('dotenv').config()
+// require('dotenv').config()
 
 const express = require('express')
 const app = express()
@@ -8,7 +8,9 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Database Successfully'))
-
+ app.get('/',(req,res)=>{
+     res.send({message:"Welcome to Diego and Sive application"})
+ })
 app.use(express.json())
 
 const usersRouter = require('./app/routes/user.routes.js')
