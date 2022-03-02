@@ -1,7 +1,7 @@
 {
   "name": "mongodb",
   "version": "1.0.0",
-  "description": "",
+  "description": "online store backend server",
   "main": "server.js",
   "scripts": {
     "Start": "nodemon server.js"
