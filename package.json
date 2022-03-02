@@ -9,7 +9,7 @@
   "author": "Encrypto27",
   "license": "ISC",
   "dependencies": {
-    "dcryptjs": "^1.0.5",
+    "bcrypt": "^5.0.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
