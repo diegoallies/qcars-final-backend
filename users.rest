@@ -1,4 +1,4 @@
-GET http://localhost:8999/users 
+GET http://localhost:8999/users/6218be31b86000072206ea8b
 
 ###
 GET http://localhost:8999/users
